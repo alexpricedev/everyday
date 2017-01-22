@@ -1,0 +1,10 @@
+settings-production.json
+.DS_Store
+node_modules
+.deploy
+npm-debug.log
+**/*.swp
+**/*.swo
+.meteor/local*
+.meteor/meteorite
+.meteor/dev_bundle
