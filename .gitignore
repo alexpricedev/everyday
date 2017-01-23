@@ -8,3 +8,4 @@ npm-debug.log
 .meteor/local*
 .meteor/meteorite
 .meteor/dev_bundle
+.ai

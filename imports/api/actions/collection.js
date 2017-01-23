@@ -3,7 +3,7 @@ import SimpleSchema from 'simpl-schema';
 
 import { actionTypes } from './constants.js';
 
-export default Actions = new Mongo.Collection('actions');
+const Actions = new Mongo.Collection('actions');
 
 export const ActionSchema = new SimpleSchema({
   userId: {
@@ -45,3 +45,5 @@ Actions.deny({
   update: () => true,
   remove: () => true
 });
+
+export default Actions;
