@@ -1,6 +1,6 @@
 # Everydo
 
-A Todo App For People Whole Like Getting Shit Done.
+A Todo App For People Who Like Getting Shit Done.
 
 ### Installing & running
 
