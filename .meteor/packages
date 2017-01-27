@@ -13,3 +13,5 @@ ecmascript@0.6.1              # Enable ECMAScript2015+ syntax in app code
 
 aldeed:collection2-core
 static-html
+react-meteor-data
+accounts-password

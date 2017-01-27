@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import {
   COMPLETE_ACTION,
-} from '../../App/constants';
+} from '../../wrappers/App/constants';
 import ActionView from './ActionView';
 import nextAction from './actions/nextAction';
 

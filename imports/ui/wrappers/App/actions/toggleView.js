@@ -6,10 +6,9 @@ import {
 import {
   ALL_COMPLETE,
   NEXT_ACTION,
-} from '../../views/ActionView/constants';
+} from '../../../views/ActionView/constants';
 
-
-import { getFirstUncompleteAction } from '../../../helpers/get-action';
+import { getFirstUncompleteAction } from '/imports/helpers/get-action';
 
 const toggleView = () => {
   return (dispatch, getState) => {

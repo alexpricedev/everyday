@@ -1,8 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
-import { zoneTypes } from './constants.js';
-
 const Zones = new Mongo.Collection('zones');
 
 export const ZoneSchema = new SimpleSchema({
@@ -12,10 +10,7 @@ export const ZoneSchema = new SimpleSchema({
       return this.userId;
     }
   },
-  type: {
-    type: String,
-    allowedValues: zoneTypes,
-  },
+  name: String,
   actions: {
     type: Array,
     label: 'An array of actionIds',

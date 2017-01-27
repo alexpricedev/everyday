@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import {
   TOGGLE_ACTION,
-} from '../../App/constants';
+} from '../../wrappers/App/constants';
 import Action from './Action';
 
 function mapDispatchToProps(dispatch) {

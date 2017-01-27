@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
 
-import Actions from './collection';
+import Actions from '../collection';
 import { unauthorizedError } from '/imports/constants';
 
 /**

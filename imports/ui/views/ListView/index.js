@@ -1,25 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-import Action from '../../components/Action';
+import ListView from './ListView';
 
-const ListView = ({ actions }) => (
-  <ul>
-    { actions.map((action) => (
-      <li key={action.id}>
-        <Action action={action} />
-      </li>
-    )) }
+function mapStateToProps(state, props) {
+  return state.actionView;
+}
 
-    <style jsx>{`
-      ul {
-        list-style-type: none;
-      }
-
-      li {
-        margin: 0 0 10px;
-      }
-    `}</style>
-  </ul>
-)
-
-export default ListView;
+export default connect(mapStateToProps)(ListView);

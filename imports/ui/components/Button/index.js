@@ -1,35 +1,14 @@
 import React from 'react';
 
-const Button = ({ onClick, children }) => (
-  <a
-    href="#"
-    onClick={(e) => {
-      e.preventDefault();
-      onClick(e);
-    }}
-  >
-    { children }
+import A from './A';
+import B from './B';
 
-    <style jsx>{`
-      a {
-        border: 2px solid #000000;
-        color: #000000;
-        cursor: pointer;
-        display: inline-block;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        font-weight: 700;
-        padding: 8px 16px;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
-
-      a:hover {
-        background: #000000;
-        color: #ffffff;
-      }
-    `}</style>
-  </a>
-)
+const Button = ({ submit, ...rest }) => {
+  if (submit) {
+    return <B {...rest} />;
+  } else {
+    return <A {...rest} />;
+  }
+};
 
 export default Button;

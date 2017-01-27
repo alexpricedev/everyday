@@ -10,7 +10,7 @@ import {
 import {
   completeActionWithId,
   toggleActionWithId,
-} from '../../helpers/update-action';
+} from '/imports/helpers/update-action';
 
 const initialState = {
   view: LIST_VIEW,

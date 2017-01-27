@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import app from '/imports/ui/App/reducer';
+import app from '/imports/ui/wrappers/App/reducer';
 import actionView from '/imports/ui/views/ActionView/reducer';
 import timer from '/imports/ui/components/ActionPages/Timer/reducer';
 
