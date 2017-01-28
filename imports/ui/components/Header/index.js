@@ -2,10 +2,11 @@ import React from 'react';
 
 import Button from '../Button';
 
-const Header = ({ toggleView, listView }) => (
+const Header = ({ toggleView, listView, showFocusButton }) => (
   <header>
     <h1>every<strong>do</strong></h1>
-    { toggleView &&
+
+    { showFocusButton &&
       <div>
         <Button onClick={toggleView}>
           { listView ? 'Focus' : 'List' }

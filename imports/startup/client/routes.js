@@ -13,6 +13,12 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import store from './store';
 const history = syncHistoryWithStore(browserHistory, store);
 
+// onEnter hooks
+import {
+  requireAuth,
+  userLoggedIn,
+} from './route-hooks';
+
 // --- Public Route Components --- \\
 import PublicApp from '/imports/ui/wrappers/PublicApp';
 import Login from '/imports/ui/pages/Login';
@@ -23,7 +29,7 @@ import App from '/imports/ui/wrappers/App';
 export default (
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={App}>
+      <Route path="/" component={App} onEnter={requireAuth}>
       </Route>
 
       <Route path="/" component={PublicApp}>

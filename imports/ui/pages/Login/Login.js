@@ -5,15 +5,25 @@ import {
   Label,
   EmailInput,
   PasswordInput
-} from '../components/Forms';
-import Button from '../components/Button';
-import Link from '../components/Link';
+} from '../../components/Forms';
+import Button from '../../components/Button';
+import Link from '../../components/Link';
+import Error from '../../components/Error';
 
-const Login = ({ login }) => (
+const Login = ({ login, error }) => (
   <form
-    onSubmit={login}
+    onSubmit={e => {
+      e.preventDefault();
+      login(
+        e.target.email.value,
+        e.target.password.value
+      );
+    }}
     className="login"
   >
+
+    { error && <Error message={error} margin /> }
+
     <Group>
       <Label htmlFor="email">Email address</Label>
       <EmailInput

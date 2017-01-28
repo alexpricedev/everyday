@@ -3,7 +3,7 @@ import { browserHistory } from 'react-router';
 import ReduxThunk from 'redux-thunk';
 import { routerMiddleware } from 'react-router-redux';
 
-import rootReducer from './rootReducer';
+import rootReducer from './root-reducer';
 
 let middleware = [
   ReduxThunk,

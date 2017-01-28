@@ -1,5 +1,6 @@
 export const INIT = 'APP/INIT';
 export const ERROR = 'APP/ERROR';
+export const LOADING = 'APP/LOADING';
 export const TOGGLE_VIEW = 'APP/TOGGLE_VIEW';
 export const LIST_VIEW = 'APP/LIST_VIEW';
 export const ACTION_VIEW = 'APP/ACTION_VIEW';

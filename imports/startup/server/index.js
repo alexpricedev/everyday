@@ -4,5 +4,6 @@
 
 import './fixtures';
 import './security';
+import './useraccounts-configuration';
 import './emails/reset-password.js';
 import '/imports/api';

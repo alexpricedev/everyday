@@ -2,15 +2,20 @@ import { Meteor } from 'meteor/meteor';
 
 import {
   INIT,
+  LOADING,
 } from '../constants';
 
 const initStore = () => {
   return (dispatch, getState) => {
-    const { app } = getState();
 
-    Meteor.call('getActions', (err, actions) => {
-      console.log(err);
-      dispatch({ type: INIT, actions });
+    dispatch({ type: LOADING, state: true });
+
+    Meteor.call('getActionsForUser', (err, actions) => {
+      if (!err) {
+        dispatch({ type: INIT, actions });
+      }
+
+      dispatch({ type: LOADING, state: false });
     });
 
   };

@@ -3,9 +3,9 @@
  */
 
 import { updateText } from './update-text';
-import { getActions } from './get-actions';
+import { getActionsForUser } from './get-actions-for-user';
 
 export {
   updateText,
-  getActions,
+  getActionsForUser,
 };

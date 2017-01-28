@@ -1,8 +1,9 @@
 import React from 'react';
 
-const A = ({ onClick, children }) => (
+const A = ({ onClick, children, block }) => (
   <a
     href="#"
+    className={block ? 'block' : ''}
     onClick={(e) => {
       e.preventDefault();
       onClick(e);
@@ -27,6 +28,11 @@ const A = ({ onClick, children }) => (
       a:hover {
         background: #000000;
         color: #ffffff;
+      }
+
+      .block {
+        display: block;
+        text-align: center;
       }
     `}</style>
   </a>

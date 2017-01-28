@@ -1,6 +1,7 @@
 import {
   INIT,
   ERROR,
+  LOADING,
   TOGGLE_VIEW,
   LIST_VIEW,
   ACTION_VIEW,
@@ -23,6 +24,9 @@ const reducer = (state = initialState, action = {}) => {
 
     case INIT:
       return {...initialState, actions: action.actions };
+
+    case LOADING:
+      return {...initialState, loading: action.state || false };
 
     case TOGGLE_VIEW:
       const view = state.view === LIST_VIEW ? ACTION_VIEW : LIST_VIEW;

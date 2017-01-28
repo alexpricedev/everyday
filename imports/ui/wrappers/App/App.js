@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Loading from '../../components/Loading';
 import ListView from '../../views/ListView';
 import ActionView from '../../views/ActionView';
 import Header from '../../components/Header';
@@ -13,39 +14,28 @@ class App extends React.Component {
 
   render() {
     const {
-      error,
+
+      // from state
       loading,
       view,
-      activeAction,
       actions,
+
+      // from dispatch
       toggleView,
     } = this.props;
 
-    if (error) {
-      return (
-        <div>
-          { error }
-        </div>
-      );
-    }
-
     if (loading) {
-      return (
-        <div>
-          Loading...
-        </div>
-      );
+      return <Loading />;
     }
 
     const listView = view === LIST_VIEW;
-
-    // console.log(props);
 
     return (
       <div>
         <Header
           toggleView={toggleView}
           listView={listView}
+          showFocus={actions.length > 0}
         />
 
         { listView ?
