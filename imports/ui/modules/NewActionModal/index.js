@@ -1,64 +1,33 @@
-import React from 'react';
+import React from 'react'
+import { connect } from 'react-redux'
 
-import Modal from '../../components/Modal';
-import Error from '../../components/Error';
-import Button from '../../components/Button';
+import NewActionModal from './NewActionModal';
+import addAction from './actions/add-action';
 import {
-  Group,
-  Label,
-  TextInput,
-} from '../../components/Forms';
-import NewActionRadio from './NewActionRadio';
-import {
-  todoType,
-  timerType,
-} from '/imports/api/actions/constants';
+  UPDATE_ACTION_TYPE,
+  UPDATE_ACTION_TEXT,
+  UPDATE_ACTION_TIME,
+} from './constants';
 
-const NewActionModal = ({ onClose, error }) => {
-  return (
-    <Modal onClose={onClose}>
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-        }}
-      >
+function mapStateToProps(state) {
+  return state.newActionModal;
+}
 
-        <Label htmlFor="actionType">Action Type</Label>
-        <div className="wrapper">
-          <NewActionRadio
-            defaultChecked={true}
-            text="Todo"
-            value={todoType}
-          />
-          <NewActionRadio
-            text="Timer"
-            value={timerType}
-          />
-        </div>
+function mapDispatchToProps(dispatch) {
+  return {
+    updateType: (actionType) => {
+      dispatch({ type: UPDATE_ACTION_TYPE, actionType });
+    },
+    updateText: (text) => {
+      dispatch({ type: UPDATE_ACTION_TEXT, text });
+    },
+    updateTime: (time) => {
+      dispatch({ type: UPDATE_ACTION_TIME, time });
+    },
+    addAction: (obj) => {
+      dispatch(addAction(obj));
+    },
+  };
+}
 
-        <Group>
-          <Label htmlFor="text">Action Text</Label>
-          <TextInput
-            name="text"
-            placeholder="What are you trying to do?"
-          />
-          { error && <Error message={error} margin /> }
-        </Group>
-
-        <Button submit>Add</Button>
-
-        <style jsx>{`
-          .wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 0 0 5px;
-            position: relative;
-            top: 5px;
-          }
-        `}</style>
-      </form>
-    </Modal>
-  );
-};
-
-export default NewActionModal;
+export default connect(mapStateToProps, mapDispatchToProps)(NewActionModal);

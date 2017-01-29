@@ -6,6 +6,7 @@ import actionView from '/imports/ui/views/ActionView/reducer';
 import listView from '/imports/ui/views/ListView/reducer';
 import timer from '/imports/ui/components/ActionPages/Timer/reducer';
 import login from '/imports/ui/pages/Login/reducer';
+import newActionModal from '/imports/ui/modules/NewActionModal/reducer';
 
 export default combineReducers({
   routing: routerReducer,
@@ -14,4 +15,5 @@ export default combineReducers({
   listView,
   timer,
   login,
+  newActionModal,
 });

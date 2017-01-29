@@ -2,13 +2,16 @@ import React from 'react';
 
 import Radio from '../../components/Forms/Radio';
 
-const NewActionRadio = ({ defaultChecked, text, value }) => {
+const NewActionRadio = ({ checked, onChange, text, value }) => {
   return (
     <label>
       <input
-        defaultChecked={defaultChecked}
+        checked={checked}
         id="actionType"
         name="actionType"
+        onChange={e => {
+          onChange(e.target.value);
+        }}
         type="radio"
         value={value}
       />
