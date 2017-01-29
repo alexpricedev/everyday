@@ -19,7 +19,6 @@ const Login = ({ login, error }) => (
         e.target.password.value
       );
     }}
-    className="login"
   >
 
     { error && <Error message={error} margin /> }
