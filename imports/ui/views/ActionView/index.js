@@ -13,8 +13,8 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    next: (actionId) => {
-      dispatch({ type: COMPLETE_ACTION, id: actionId });
+    next: (_id) => {
+      dispatch({ type: COMPLETE_ACTION, _id });
       dispatch(nextAction());
     },
   };

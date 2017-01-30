@@ -8,8 +8,8 @@ import Action from './Action';
 
 function mapDispatchToProps(dispatch) {
   return {
-    toggleAction: (actionId) => {
-      dispatch({ type: TOGGLE_ACTION, id: actionId });
+    toggleAction: (_id) => {
+      dispatch({ type: TOGGLE_ACTION, _id });
     },
   };
 }

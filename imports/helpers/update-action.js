@@ -7,9 +7,9 @@ import R from 'ramda';
  * @param {Object} action - The action object to test
  * @return {Object} action
  */
-const completeActionWithId = R.curry((id, action) => {
-  if(action.id === id) {
-    return Object.assign({}, action, { complete: true });
+const completeActionWithId = R.curry((_id, action) => {
+  if(action._id === _id) {
+    return { ...action, complete: true };
   }
   return action;
 });
@@ -22,9 +22,9 @@ const completeActionWithId = R.curry((id, action) => {
  * @param {Object} action - The action object to test
  * @return {Object} action
  */
-const toggleActionWithId = R.curry((id, action) => {
-  if(action.id === id) {
-    return Object.assign({}, action, { complete: !action.complete });
+const toggleActionWithId = R.curry((_id, action) => {
+  if(action._id === _id) {
+    return { ...action, complete: !action.complete };
   }
   return action;
 });

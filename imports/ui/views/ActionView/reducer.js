@@ -18,7 +18,7 @@ const reducer = (state = initialState, action = {}) => {
       return {...state, numActions: action.numActions };
 
     case NEXT_ACTION:
-      const index = R.findIndex(R.propEq('id', action.id), action.actions);
+      const index = R.findIndex(R.propEq('_id', action._id), action.actions);
       return {...state, activeAction: index, allComplete: false };
 
     case ALL_COMPLETE:

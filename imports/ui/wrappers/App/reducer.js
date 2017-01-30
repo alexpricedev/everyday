@@ -45,21 +45,21 @@ const reducer = (state = initialState, action = {}) => {
         actions: R.remove(index, 1, state.actions)
       };
 
-    case TOGGLE_VIEW:
-      const view = state.view === LIST_VIEW ? ACTION_VIEW : LIST_VIEW;
-      return { ...state, view };
-
     case COMPLETE_ACTION:
       return {
         ...state,
-        actions: state.actions.map(completeActionWithId(action.id)),
+        actions: state.actions.map(completeActionWithId(action._id)),
       };
 
     case TOGGLE_ACTION:
       return {
         ...state,
-        actions: state.actions.map(toggleActionWithId(action.id)),
+        actions: state.actions.map(toggleActionWithId(action._id)),
       };
+
+    case TOGGLE_VIEW:
+      const view = state.view === LIST_VIEW ? ACTION_VIEW : LIST_VIEW;
+      return { ...state, view };
 
     case ERROR:
       return {

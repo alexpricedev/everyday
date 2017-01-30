@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { timerType } from '/imports/api/actions/constants';
 import {
   Todo,
   Timer,
@@ -8,7 +9,18 @@ import {
 import Button from '../../components/Button';
 
 const ActionView = props => {
-  const { actions, activeAction, allComplete, next } = props;
+  const {
+
+    // from props
+    actions,
+
+    // from state
+    activeAction,
+    allComplete,
+
+    // from dispatch
+    next,
+  } = props;
 
   if (allComplete) {
     return <Complete />;
@@ -19,7 +31,7 @@ const ActionView = props => {
   let page = <Todo action={action} />;
 
   switch (action.type) {
-    case 'timer':
+    case timerType:
       page = <Timer action={action} />;
       break;
   }
@@ -29,7 +41,7 @@ const ActionView = props => {
       { page }
 
       <center>
-        <Button onClick={() => next(action.id)}>
+        <Button onClick={() => next(action._id)}>
           Next
         </Button>
       </center>

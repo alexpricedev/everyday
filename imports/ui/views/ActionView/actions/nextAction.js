@@ -16,7 +16,7 @@ const nextAction = () => {
       () => dispatch({ type: ALL_COMPLETE }),
       a => dispatch({
         type: NEXT_ACTION,
-        id: a.id,
+        _id: a._id,
         actions: app.actions
       }),
       next

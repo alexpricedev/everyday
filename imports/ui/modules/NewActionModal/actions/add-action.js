@@ -39,6 +39,7 @@ const addAction = () => {
       text,
       type,
       time: type === timerType ? time : undefined,
+      complete: false,
     };
 
     insertAction.call(action, (err, _id) => {

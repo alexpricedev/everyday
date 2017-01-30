@@ -5,7 +5,7 @@ const Action = ({ action, toggleAction }) => (
     <input
       type="checkbox"
       checked={action.complete}
-      onChange={() => toggleAction(action.id)}
+      onChange={() => toggleAction(action._id)}
     />
     <label>
       { action.text }
