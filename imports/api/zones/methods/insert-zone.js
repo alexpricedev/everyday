@@ -7,8 +7,8 @@ import { unauthorizedError } from '/imports/constants';
 /**
  * This is a method used for creating a zone
  */
-export const createZone = {
-  name: 'zones.create',
+export const insertZone = {
+  name: 'zones.insertZone',
 
   validate(args) {
     new SimpleSchema({
@@ -24,7 +24,7 @@ export const createZone = {
       );
     }
 
-    Actions.insert({ name });
+    Zones.insert({ name });
   },
 
   call(args, callback) {
@@ -39,8 +39,8 @@ export const createZone = {
 
 // Register the method with Meteor's DDP system
 Meteor.methods({
-  [createZone.name]: function (args) {
-    createZone.validate.call(this, args);
-    createZone.run.call(this, args);
+  [insertZone.name]: function (args) {
+    insertZone.validate.call(this, args);
+    insertZone.run.call(this, args);
   }
 });

@@ -8,6 +8,7 @@ const Actions = new Mongo.Collection('actions');
 export const ActionSchema = new SimpleSchema({
   userId: {
     type: SimpleSchema.RegEx.Id,
+    optional: true,
     autoValue: function() {
       return this.userId;
     }
@@ -23,6 +24,7 @@ export const ActionSchema = new SimpleSchema({
   },
   complete: {
     type: Boolean,
+    optional: true,
     defaultValue: false,
   },
   time: {

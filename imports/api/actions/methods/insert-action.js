@@ -22,7 +22,7 @@ export const insertAction = {
       );
     }
 
-    Actions.insert({ text, type, time });
+    return Actions.insert({ text, type, time });
   },
 
   call(args, callback) {
@@ -39,6 +39,6 @@ export const insertAction = {
 Meteor.methods({
   [insertAction.name]: function (args) {
     insertAction.validate.call(this, args);
-    insertAction.run.call(this, args);
+    return insertAction.run.call(this, args);
   }
 });

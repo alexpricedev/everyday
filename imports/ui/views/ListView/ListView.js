@@ -19,7 +19,7 @@ const ListView = props => {
   return (
     <ul>
       { actions.map((action) => (
-        <li key={action.id}>
+        <li key={action._id}>
           <Action action={action} />
         </li>
       )) }

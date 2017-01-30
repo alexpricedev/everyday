@@ -2,6 +2,10 @@ import { timerType } from '/imports/api/actions/constants';
 import { insertAction } from '/imports/api/actions/methods';
 import { ERROR} from '../constants';
 import { HIDE_NEW_ACTION_MODAL } from '../../../views/ListView/constants';
+import {
+  INSERT_ACTION,
+  REMOVE_ACTION,
+} from '../../../wrappers/App/constants';
 
 const addAction = () => {
   return (dispatch, getState) => {
@@ -30,15 +34,25 @@ const addAction = () => {
       return;
     }
 
-    insertAction.call({ text, type, time }, (err, res) => {
+    // Don't add the time if we're not creating a timer action
+    const action = {
+      text,
+      type,
+      time: type === timerType ? time : undefined,
+    };
+
+    insertAction.call(action, (err, _id) => {
       if (err) {
         dispatch({
           type: ERROR,
-          field: 'time',
+          field: 'submit',
           message: 'Eww.. something went wrong',
         });
-        console.log(err);
       } else {
+        dispatch({
+          type: INSERT_ACTION,
+          action: { ...action, _id }
+        });
         dispatch({ type: HIDE_NEW_ACTION_MODAL });
       }
     });

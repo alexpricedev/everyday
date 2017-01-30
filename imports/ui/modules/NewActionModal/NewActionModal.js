@@ -67,9 +67,6 @@ const NewActionModal = props => {
             placeholder="What are you trying to do?"
             value={text}
           />
-          { error &&
-            error.field === 'text' &&
-            <Error message={error.message} margin /> }
         </Group>
 
         { type === timerType &&
@@ -81,10 +78,12 @@ const NewActionModal = props => {
               placeholder="How long do you wana do this for? (seconds)"
               value={time}
             />
-            { error &&
-              error.field === 'time' &&
-              <Error message={error.message} margin /> }
           </Group> }
+
+        { error &&
+          <div className="error clearfix">
+            <Error message={error.message} margin />
+          </div> }
 
         <Button submit>Add</Button>
 
@@ -95,6 +94,10 @@ const NewActionModal = props => {
             padding: 0 0 5px;
             position: relative;
             top: 5px;
+          }
+
+          .error {
+            margin-bottom: 10px;
           }
         `}</style>
       </form>

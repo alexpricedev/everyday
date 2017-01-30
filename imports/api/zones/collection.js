@@ -6,6 +6,7 @@ const Zones = new Mongo.Collection('zones');
 export const ZoneSchema = new SimpleSchema({
   userId: {
     type: SimpleSchema.RegEx.Id,
+    optional: true,
     autoValue: function() {
       return this.userId;
     }

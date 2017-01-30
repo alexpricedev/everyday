@@ -2,8 +2,8 @@
  * Import all of the methods for Zones
  */
 
-import { createZone } from './create-zone';
+import { insertZone } from './insert-zone';
 
 export {
-  createZone,
+  insertZone,
 };

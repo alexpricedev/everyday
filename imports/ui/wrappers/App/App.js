@@ -35,7 +35,7 @@ class App extends React.Component {
         <Header
           toggleView={toggleView}
           listView={listView}
-          showFocus={actions.length > 0}
+          showFocusButton={actions.length > 0}
         />
 
         { listView ?
@@ -48,6 +48,14 @@ class App extends React.Component {
               margin: 0 auto;
               max-width: 500px;
             }
+          }
+        `}</style>
+
+        <style jsx global>{`
+          .clearfix:after {
+            content: '';
+            display: table;
+            clear: both;
           }
         `}</style>
       </div>

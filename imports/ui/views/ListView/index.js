@@ -9,7 +9,7 @@ import ListView from './ListView';
 
 function mapStateToProps(state, props) {
   return {
-    ...state.actionView,
+    ...state.app,
     ...state.listView,
   };
 }
