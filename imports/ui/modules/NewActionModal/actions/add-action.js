@@ -1,6 +1,6 @@
 import { timerType } from '/imports/api/actions/constants';
 import { insertAction } from '/imports/api/actions/methods';
-import { ERROR} from '../constants';
+import { ERROR, INIT } from '../constants';
 import { HIDE_NEW_ACTION_MODAL } from '../../../views/ListView/constants';
 import {
   INSERT_ACTION,
@@ -55,6 +55,7 @@ const addAction = () => {
           action: { ...action, _id }
         });
         dispatch({ type: HIDE_NEW_ACTION_MODAL });
+        dispatch({ type: INIT });
       }
     });
   };

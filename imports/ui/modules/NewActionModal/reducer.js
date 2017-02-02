@@ -4,6 +4,7 @@ import {
   UPDATE_ACTION_TEXT,
   UPDATE_ACTION_TIME,
   ERROR,
+  INIT,
 } from './constants';
 
 const initialState = {
@@ -42,6 +43,9 @@ const reducer = (state = initialState, action = {}) => {
         };
       }
       return { ...state, error };
+
+    case INIT:
+      return initialState;
 
     default:
       return state;
