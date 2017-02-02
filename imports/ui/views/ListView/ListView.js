@@ -1,4 +1,5 @@
 import React from 'react'
+import { insertZone } from '/imports/api/zones/methods';
 
 import Action from '../../components/Action';
 import Button from '../../components/Button';
@@ -7,8 +8,10 @@ import NewActionModal from '../../modules/NewActionModal';
 const ListView = props => {
   const {
 
+    // from props
+    zones,
+
     // from state
-    actions,
     newActionModalVisible,
 
     // from dispatch
@@ -16,13 +19,20 @@ const ListView = props => {
     hideNewActionModal,
   } = props;
 
+  const actions = [];
+
   return (
     <ul>
-      { actions.map((action) => (
-        <li key={action._id}>
-          <Action action={action} />
-        </li>
-      )) }
+
+      { zones.map(zone => (
+          <div key={zone._id}>
+            { zone.actions.map((action) => (
+                <li key={action._id}>
+                  <Action action={action} />
+                </li>
+              )) }
+          </div>
+        )) }
 
       { actions.length === 0 &&
         <li className="empty">

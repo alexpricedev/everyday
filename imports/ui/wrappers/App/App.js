@@ -18,7 +18,7 @@ class App extends React.Component {
       // from state
       loading,
       view,
-      actions,
+      zones,
 
       // from dispatch
       toggleView,
@@ -30,6 +30,8 @@ class App extends React.Component {
 
     const listView = view === LIST_VIEW;
 
+    const actions = [];
+
     return (
       <div>
         <Header
@@ -39,7 +41,7 @@ class App extends React.Component {
         />
 
         { listView ?
-          <ListView actions={actions} /> :
+          <ListView zones={zones} /> :
           <ActionView actions={actions} /> }
 
         <style jsx>{`

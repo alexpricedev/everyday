@@ -12,13 +12,6 @@ export const ZoneSchema = new SimpleSchema({
     }
   },
   name: String,
-  actions: {
-    type: Array,
-    label: 'An array of actionIds',
-    defaultValue: [],
-    optional: true
-  },
-  'actions.$': String
 });
 
 Zones.attachSchema(ZoneSchema);

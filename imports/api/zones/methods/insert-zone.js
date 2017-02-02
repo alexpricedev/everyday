@@ -17,7 +17,7 @@ export const insertZone = {
   },
 
   run({ name }) {
-    if (this.userId) {
+    if (!this.userId) {
       throw new Meteor.Error(
         unauthorizedError,
         "You cannot create zones if you're not logged in"

@@ -19,7 +19,7 @@ import {
 
 const initialState = {
   view: LIST_VIEW,
-  actions: [],
+  zones: [],
   error: false,
 };
 
@@ -27,7 +27,7 @@ const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
 
     case INIT:
-      return { ...initialState, actions: action.actions };
+      return { ...initialState, zones: action.zones };
 
     case LOADING:
       return { ...state, loading: action.state || false };

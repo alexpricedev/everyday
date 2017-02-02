@@ -36,10 +36,11 @@ const addAction = () => {
 
     // Don't add the time if we're not creating a timer action
     const action = {
+      zoneId: 'GG5gFLGwd3juSfv37',
       text,
       type,
       time: type === timerType ? time : undefined,
-      complete: false,
+      complete: false
     };
 
     insertAction.call(action, (err, _id) => {

@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { push } from 'react-router-redux';
 
 import {
   INIT,
@@ -10,9 +11,11 @@ const initStore = () => {
 
     dispatch({ type: LOADING, state: true });
 
-    Meteor.call('getActionsForUser', (err, actions) => {
-      if (!err) {
-        dispatch({ type: INIT, actions });
+    Meteor.call('getUserData', (err, zones) => {
+      if (err) {
+        dispatch(push('/'));
+      } else {
+        dispatch({ type: INIT, zones });
       }
 
       dispatch({ type: LOADING, state: false });

@@ -13,6 +13,7 @@ export const ActionSchema = new SimpleSchema({
       return this.userId;
     }
   },
+  zoneId: SimpleSchema.RegEx.Id,
   text: {
     type: String,
     min: 1,

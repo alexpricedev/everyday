@@ -14,7 +14,7 @@ export const insertAction = {
     ActionSchema.validate(args);
   },
 
-  run({ text, type, time }) {
+  run({ zoneId, text, type, time }) {
     if (!this.userId) {
       throw new Meteor.Error(
         unauthorizedError,
@@ -22,7 +22,7 @@ export const insertAction = {
       );
     }
 
-    return Actions.insert({ text, type, time });
+    return Actions.insert({ zoneId, text, type, time });
   },
 
   call(args, callback) {
