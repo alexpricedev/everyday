@@ -4,7 +4,7 @@ import Button from '../Button';
 
 const Header = ({ toggleView, listView, showFocusButton }) => (
   <header>
-    <h1>every<strong>do</strong></h1>
+    <h1>every<strong>day</strong></h1>
 
     { showFocusButton &&
       <div>

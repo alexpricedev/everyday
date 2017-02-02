@@ -1,11 +1,11 @@
-# Everydo
+# Everyday
 
-A Todo App For People Who Like Getting Shit Done.
+A Daily Todo App For People Who Like Getting Shit Done.
 
 ### Installing & running
 
 ```
-$ git clone git@github.com:alexpriceonline/Everydo.git && cd Everydo
+$ git clone git@github.com:alexpriceonline/everyday.git && cd everyday
 $ yarn
 $ yarn start
 ```

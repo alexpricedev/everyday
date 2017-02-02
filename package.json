@@ -1,6 +1,5 @@
 {
-  "name": "everydo",
-  "private": true,
+  "name": "everyday",
   "scripts": {
     "start": "meteor run",
     "unit": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
@@ -34,7 +33,7 @@
   },
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/alexpriceonline/everydo",
+  "repository": "https://github.com/alexpriceonline/everyday",
   "author": "Alex Price <hi@alexpriceonline.com>",
   "license": "MIT"
 }
