@@ -24,14 +24,9 @@ Meteor.methods({
     const actions = Actions.find({ userId: this.userId }).fetch();
 
     // Find the actions for each Zone
-    const zonesWithActions = zones.map(zone => {
+    return zones.map(zone => {
       zone.actions = R.filter(R.propEq('zoneId', zone._id), actions);
       return zone;
     });
-
-    console.log(zones);
-    console.log(zonesWithActions);
-
-    return zonesWithActions;
   },
 });
