@@ -1,6 +1,6 @@
 # Everyday
 
-A Daily Todo App For People Who Like Getting Shit Done.
+Daily Habit Tracking Like a Boss
 
 ### Installing & running
 
