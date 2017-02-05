@@ -11,11 +11,15 @@ const initStore = () => {
 
     dispatch({ type: LOADING, state: true });
 
-    Meteor.call('getUserData', (err, zones) => {
+    Meteor.call('getUserData', (err, actions) => {
       if (err) {
-        dispatch(push('/'));
+        dispatch(push('/login'));
       } else {
-        dispatch({ type: INIT, zones });
+        dispatch({
+          type: INIT,
+          morning: actions.morning,
+          evening: actions.evening
+        });
       }
 
       dispatch({ type: LOADING, state: false });

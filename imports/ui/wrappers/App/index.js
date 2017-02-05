@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { TOGGLE_ZONE } from './constants';
 import App from './App';
 import initStore from './actions/initStore';
 import toggleView from './actions/toggleView';
@@ -16,6 +17,9 @@ function mapDispatchToProps(dispatch) {
     },
     toggleView: () => {
       dispatch(toggleView());
+    },
+    toggleZone: () => {
+      dispatch({ type: TOGGLE_ZONE });
     },
   };
 }

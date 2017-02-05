@@ -1,4 +1,5 @@
 import { timerType } from '/imports/api/actions/constants';
+import { morningZone } from '/imports/constants';
 import { insertAction } from '/imports/api/actions/methods';
 import { ERROR, INIT } from '../constants';
 import { HIDE_NEW_ACTION_MODAL } from '../../../views/ListView/constants';
@@ -9,12 +10,14 @@ import {
 
 const addAction = () => {
   return (dispatch, getState) => {
+    const { app, newActionModal } = getState();
 
-    const {
-      type,
-      text,
-      time,
-    } = getState().newActionModal;
+    const { zone, morningActions, eveningActions } = app;
+    const { type, text, time } = newActionModal;
+
+    const actionsForZone = zone === morningZone ?
+                           morningActions :
+                           eveningActions;
 
     if (!text) {
       dispatch({
@@ -36,11 +39,12 @@ const addAction = () => {
 
     // Don't add the time if we're not creating a timer action
     const action = {
-      zoneId: 'GG5gFLGwd3juSfv37',
+      zone,
       text,
       type,
       time: type === timerType ? time : undefined,
-      complete: false
+      complete: false,
+      order: actionsForZone.length
     };
 
     insertAction.call(action, (err, _id) => {

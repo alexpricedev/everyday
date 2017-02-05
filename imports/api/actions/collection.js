@@ -1,6 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
+import { zoneTypes } from '/imports/constants';
 import { actionTypes } from './constants.js';
 
 const Actions = new Mongo.Collection('actions');
@@ -13,7 +14,10 @@ export const ActionSchema = new SimpleSchema({
       return this.userId;
     }
   },
-  zoneId: SimpleSchema.RegEx.Id,
+  zone: {
+    type: String,
+    allowedValues: zoneTypes
+  },
   text: {
     type: String,
     min: 1,
@@ -32,7 +36,8 @@ export const ActionSchema = new SimpleSchema({
     type: SimpleSchema.Integer,
     label: 'Time for Timer type actions',
     optional: true,
-  }
+  },
+  order: Number,
 });
 
 Actions.attachSchema(ActionSchema);
