@@ -10,8 +10,3 @@ import './app/methods/get-user-data';
 import './actions/collection';
 import './actions/server/publications';
 import './actions/methods';
-
-// Zone imports
-import './zones/collection';
-import './zones/server/publications';
-import './zones/methods';

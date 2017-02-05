@@ -20,29 +20,25 @@ class Timer extends React.Component {
 
     return (
       <div>
-        {action.text}
-
-        <br />
-
-        <time>Timer: {time}s</time>
+        {action.text}: {time}s
 
         <br />
 
         { !timerActive &&
           time > 0 &&
-          <Button onClick={startTimer}>
+          <Button onClick={startTimer} start>
             Start
           </Button> }
 
         { timerActive &&
           time >= 0 &&
-          <Button onClick={stopTimer}>
+          <Button onClick={stopTimer} stop>
             Stop
           </Button> }
 
         { !timerActive &&
           time < maxTime &&
-          <span>
+          <span className={time > 0 && 'margin'}>
             <Button onClick={resetTimer}>
               Reset
             </Button>
@@ -55,12 +51,7 @@ class Timer extends React.Component {
             margin: 0 0 20px;
             text-align: center;
           }
-
-          time {
-            font-size: 24px;
-          }
-
-          span {
+          .margin {
             margin-left: 10px;
           }
         `}</style>

@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { morningZone } from '/imports/constants';
 import Loading from '../../components/Loading';
+import Header from '../../components/Header';
+import ZoneSwitch from '../../components/ZoneSwitch';
 import ListView from '../../views/ListView';
 import ActionView from '../../views/ActionView';
-import Header from '../../components/Header';
 import { LIST_VIEW } from './constants.js';
 
 class App extends React.Component {
@@ -18,10 +20,14 @@ class App extends React.Component {
       // from state
       loading,
       view,
-      zones,
+      zone,
+      morningActions,
+      eveningActions,
 
       // from dispatch
       toggleView,
+      toggleZone,
+      reset,
     } = this.props;
 
     if (loading) {
@@ -29,8 +35,8 @@ class App extends React.Component {
     }
 
     const listView = view === LIST_VIEW;
-
-    const actions = [];
+    const isMorning = zone === morningZone;
+    const actions = isMorning ? morningActions : eveningActions;
 
     return (
       <div>
@@ -40,8 +46,17 @@ class App extends React.Component {
           showFocusButton={actions.length > 0}
         />
 
+        { listView &&
+          <ZoneSwitch
+            isMorning={isMorning}
+            toggleZone={toggleZone}
+          /> }
+
         { listView ?
-          <ListView zones={zones} /> :
+          <ListView
+            actions={actions}
+            reset={reset}
+          /> :
           <ActionView actions={actions} /> }
 
         <style jsx>{`

@@ -6,7 +6,6 @@ import { fromNullable } from './error-handling';
 const actionIsUncomplete = R.propEq('complete', false);
 
 const getNextUncompleteAction = R.curry((index, actions) => {
-  console.log('actions', actions);
   return fromNullable(
     R.head(
       R.slice(
