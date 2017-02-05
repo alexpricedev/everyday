@@ -1893,6 +1893,15 @@ simpl-schema@^0.1.0:
     mongo-object "0.0.1"
     underscore "^1.8.3"
 
+"simpl-schema@git+ssh://git@github.com/DerekTBrown/node-simple-schema.git":
+  version "0.1.0"
+  resolved "git+ssh://git@github.com/DerekTBrown/node-simple-schema.git#836269148c3cb949819b99a63296c0153bb8fba8"
+  dependencies:
+    clone "^1.0.2"
+    message-box "0.0.2"
+    mongo-object "0.0.1"
+    underscore "^1.8.3"
+
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"

@@ -1,10 +1,21 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const A = ({ onClick, children, block, fade }) => {
+const A = props => {
+  const {
+    block,
+    children,
+    fade,
+    onClick,
+    start,
+    stop,
+  } = props;
+
   const cls = classNames({
     block,
     fade,
+    start,
+    stop,
   });
 
   return (
@@ -51,6 +62,24 @@ const A = ({ onClick, children, block, fade }) => {
           background: #ffffff;
           color: #000000;
           opacity: 0.5;
+        }
+
+        .start {
+          border-color: #2ecc71;
+          color: #2ecc71;
+        }
+
+        .start:hover {
+          background-color: #2ecc71;
+        }
+
+        .stop {
+          border-color: #e74c3c;
+          color: #e74c3c;
+        }
+
+        .stop:hover {
+          background-color: #e74c3c;
         }
       `}</style>
     </a>

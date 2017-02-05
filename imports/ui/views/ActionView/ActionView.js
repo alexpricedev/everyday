@@ -41,8 +41,8 @@ const ActionView = props => {
       { page }
 
       <center>
-        <Button onClick={() => next(action)}>
-          Next
+        <Button onClick={() => next(action)} block>
+          Next &raquo;
         </Button>
       </center>
     </div>
