@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { TOGGLE_ZONE } from './constants';
+import { TOGGLE_ZONE, RESET_ACTIONS } from './constants';
 import App from './App';
 import initStore from './actions/initStore';
 import toggleView from './actions/toggleView';
@@ -20,6 +20,9 @@ function mapDispatchToProps(dispatch) {
     },
     toggleZone: () => {
       dispatch({ type: TOGGLE_ZONE });
+    },
+    reset: () => {
+      dispatch({ type: RESET_ACTIONS });
     },
   };
 }

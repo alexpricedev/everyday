@@ -16,6 +16,7 @@ import {
   INSERT_ACTION,
   REMOVE_ACTION,
   TOGGLE_ZONE,
+  RESET_ACTIONS,
 } from './constants';
 import {
   completeActionWithId,
@@ -94,6 +95,14 @@ const reducer = (state = initialState, action = {}) => {
     case TOGGLE_ZONE:
       const zone = state.zone === morningZone ? eveningZone : morningZone;
       return { ...state, zone };
+
+    case RESET_ACTIONS:
+      const resetAction = a => ({ ...a, complete: false });
+      return {
+        ...state,
+        morningActions: state.morningActions.map(resetAction),
+        eveningActions: state.eveningActions.map(resetAction)
+      };
 
     case ERROR:
       return { ...state, error: action.error };

@@ -27,6 +27,7 @@ class App extends React.Component {
       // from dispatch
       toggleView,
       toggleZone,
+      reset,
     } = this.props;
 
     if (loading) {
@@ -52,7 +53,10 @@ class App extends React.Component {
           /> }
 
         { listView ?
-          <ListView zone={zone} actions={actions} /> :
+          <ListView
+            actions={actions}
+            reset={reset}
+          /> :
           <ActionView actions={actions} /> }
 
         <style jsx>{`

@@ -9,6 +9,7 @@ const ListView = props => {
 
     // from props
     actions,
+    reset,
 
     // from state
     newActionModalVisible,
@@ -31,8 +32,17 @@ const ListView = props => {
           No actions bro. Why don't you add one?
         </li> }
 
-      <Button onClick={showNewActionModal} block>
+      <Button
+        onClick={showNewActionModal}
+        block
+      >
         Add an action
+      </Button>
+
+      <br />
+
+      <Button onClick={reset} block fade>
+        Reset
       </Button>
 
       { newActionModalVisible &&
