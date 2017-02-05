@@ -1,5 +1,7 @@
 import { Either } from 'ramda-fantasy';
 
+import { morningZone } from '/imports/constants';
+import { getFirstUncompleteAction } from '/imports/helpers/get-action';
 import {
   TOGGLE_VIEW,
 } from '../constants';
@@ -8,21 +10,24 @@ import {
   NEXT_ACTION,
 } from '../../../views/ActionView/constants';
 
-import { getFirstUncompleteAction } from '/imports/helpers/get-action';
-
 const toggleView = () => {
   return (dispatch, getState) => {
     const { app, actionView } = getState();
-    const current = actionView.activeAction;
-    const first = getFirstUncompleteAction(app.actions);
+
+    const actions = app.zone === morningZone ?
+                    app.morningActions :
+                    app.eveningActions;
+
+    const maybeAction = getFirstUncompleteAction(actions);
+
     Either.either(
       () => dispatch({ type: ALL_COMPLETE }),
       a => dispatch({
         type: NEXT_ACTION,
         _id: a._id,
-        actions: app.actions
+        actions
       }),
-      first
+      maybeAction
     );
     dispatch({ type: TOGGLE_VIEW });
   };

@@ -88,22 +88,15 @@ const reducer = (state = initialState, action = {}) => {
       return _state;
 
     case TOGGLE_VIEW:
-      const view = state.view === LIST_VIEW ?
-                   ACTION_VIEW :
-                   LIST_VIEW;
+      const view = state.view === LIST_VIEW ? ACTION_VIEW : LIST_VIEW;
       return { ...state, view };
 
     case TOGGLE_ZONE:
-      const zone = state.zone === morningZone ?
-                   eveningZone :
-                   morningZone;
+      const zone = state.zone === morningZone ? eveningZone : morningZone;
       return { ...state, zone };
 
     case ERROR:
-      return {
-        ...state,
-        error: action.error,
-      };
+      return { ...state, error: action.error };
 
     default:
       return state;
