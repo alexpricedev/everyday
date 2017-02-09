@@ -1,5 +1,6 @@
 import { todoType } from '/imports/api/actions/constants';
 import {
+  UPDATE_ACTION_LIST,
   UPDATE_ACTION_TYPE,
   UPDATE_ACTION_TEXT,
   UPDATE_ACTION_TIME,
@@ -11,6 +12,7 @@ const initialState = {
   type: todoType,
   text: '',
   time: 90,
+  list: [''],
   error: false,
 };
 
@@ -33,6 +35,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         time: parseInt(action.time),
       };
+
+    case UPDATE_ACTION_LIST:
+      let list = state.list.slice(0); // clone
+      list.splice(action.index, 1, action.text);
+      return { ...state, list };
 
     case ERROR:
       let error = false;

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { INIT } from '../../modules/NewActionModal/constants';
 import {
   SHOW_NEW_ACTION_MODAL,
   HIDE_NEW_ACTION_MODAL,
@@ -21,6 +22,7 @@ function mapDispatchToProps(dispatch) {
     },
     hideNewActionModal: () => {
       dispatch({ type: HIDE_NEW_ACTION_MODAL });
+      dispatch({ type: INIT }); // Reset form
     },
   };
 }

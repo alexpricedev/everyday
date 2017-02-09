@@ -4,12 +4,13 @@ import classNames from 'classnames';
 const A = props => {
   const {
     block,
-    half,
     children,
     fade,
+    half,
     onClick,
     start,
     stop,
+    title,
   } = props;
 
   const cls = classNames({
@@ -28,6 +29,7 @@ const A = props => {
         e.preventDefault();
         onClick(e);
       }}
+      title={title}
     >
       {children}
 

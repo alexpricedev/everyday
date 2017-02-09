@@ -1,5 +1,10 @@
 import React from 'react';
 
+import {
+  todoType,
+  timerType,
+  listType,
+} from '/imports/api/actions/constants';
 import Modal from '../../components/Modal';
 import Error from '../../components/Error';
 import Button from '../../components/Button';
@@ -10,10 +15,7 @@ import {
   NumberInput,
 } from '../../components/Forms';
 import NewActionRadio from './NewActionRadio';
-import {
-  todoType,
-  timerType,
-} from '/imports/api/actions/constants';
+import ListActionInput from './ListActionInput';
 
 const NewActionModal = props => {
   const {
@@ -22,17 +24,23 @@ const NewActionModal = props => {
     onClose,
 
     // from state
-    type,
+    error,
+    list,
     text,
     time,
-    error,
+    type,
 
     // from dispatch
-    updateType,
+    addAction,
+    updateListItem,
     updateText,
     updateTime,
-    addAction,
+    updateType,
   } = props;
+
+  const modalText = type === listType ?
+    { label: 'List Title', placeholder: 'Name your list' } :
+    { label: 'Action Text', placeholder: 'What are you trying to do?' };
 
   return (
     <Modal onClose={onClose}>
@@ -57,14 +65,22 @@ const NewActionModal = props => {
             text="Time"
             value={timerType}
           />
+          <NewActionRadio
+            checked={type === listType}
+            onChange={updateType}
+            text="List"
+            value={listType}
+          />
         </div>
 
         <Group>
-          <Label htmlFor="text">Action Text</Label>
+          <Label htmlFor="text">
+            { modalText.label }
+          </Label>
           <TextInput
             name="text"
             onChange={e => updateText(e.target.value)}
-            placeholder="What are you trying to do?"
+            placeholder={modalText.placeholder}
             value={text}
           />
         </Group>
@@ -79,6 +95,12 @@ const NewActionModal = props => {
               value={time}
             />
           </Group> }
+
+        { type === listType &&
+          <ListActionInput
+            list={list}
+            updateListItem={updateListItem}
+          /> }
 
         { error &&
           <div className="error clearfix">

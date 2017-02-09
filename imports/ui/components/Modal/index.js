@@ -50,13 +50,15 @@ class Modal extends React.Component {
             background: #ffffff;
             left: 50%;
             margin: 0 0 50px;
+            max-height: calc(100vh - 100px);
             max-width: 500px;
             min-width: 300px;
+            overflow: scroll;
             padding: 20px;
             position: fixed;
-            width: 100%;
             top: 30px;
             transform: translateX(-50%);
+            width: 100%;
             z-index: 9999;
           }
 

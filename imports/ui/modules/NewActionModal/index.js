@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import NewActionModal from './NewActionModal';
 import addAction from './actions/add-action';
 import {
-  UPDATE_ACTION_TYPE,
+  UPDATE_ACTION_LIST,
   UPDATE_ACTION_TEXT,
   UPDATE_ACTION_TIME,
+  UPDATE_ACTION_TYPE,
 } from './constants';
 
 function mapStateToProps(state) {
@@ -15,8 +16,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    updateType: (actionType) => {
-      dispatch({ type: UPDATE_ACTION_TYPE, actionType });
+    addAction: (obj) => {
+      dispatch(addAction(obj));
+    },
+    updateListItem: (index, text) => {
+      dispatch({ type: UPDATE_ACTION_LIST, index, text });
     },
     updateText: (text) => {
       dispatch({ type: UPDATE_ACTION_TEXT, text });
@@ -24,8 +28,8 @@ function mapDispatchToProps(dispatch) {
     updateTime: (time) => {
       dispatch({ type: UPDATE_ACTION_TIME, time });
     },
-    addAction: (obj) => {
-      dispatch(addAction(obj));
+    updateType: (actionType) => {
+      dispatch({ type: UPDATE_ACTION_TYPE, actionType });
     },
   };
 }

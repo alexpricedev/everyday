@@ -1,7 +1,10 @@
 import React from 'react';
 
-const Label = ({ children, htmlFor }) => (
-  <label htmlFor={htmlFor}>
+const Label = ({ children, htmlFor, largeMargin }) => (
+  <label
+    className={largeMargin && 'large-margin'}
+    htmlFor={htmlFor}
+  >
     {children}
 
     <style jsx>{`
@@ -10,6 +13,10 @@ const Label = ({ children, htmlFor }) => (
         font-size: 18px;
         font-weight: 700;
         margin: 0 0 4px;
+      }
+
+      .large-margin {
+        margin: 0 0 10px;
       }
     `}</style>
   </label>
