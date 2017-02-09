@@ -27,15 +27,21 @@ export const ActionSchema = new SimpleSchema({
     type: String,
     allowedValues: actionTypes,
   },
-  complete: {
-    type: Boolean,
-    optional: true,
-    defaultValue: false,
-  },
   time: {
     type: SimpleSchema.Integer,
     label: 'Time for Timer type actions',
     optional: true,
+  },
+  list: {
+    type: Array,
+    label: 'List of mini-actions',
+    optional: true,
+  },
+  'list.$': String,
+  complete: {
+    type: Boolean,
+    optional: true,
+    defaultValue: false,
   },
   order: Number,
 });

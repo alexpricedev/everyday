@@ -1,5 +1,6 @@
-import { timerType } from '/imports/api/actions/constants';
+import { timerType, listType } from '/imports/api/actions/constants';
 import { morningZone } from '/imports/constants';
+import { cleanArray } from '/imports/helpers/clean-array';
 import { insertAction } from '/imports/api/actions/methods';
 import { ERROR, INIT } from '../constants';
 import { HIDE_NEW_ACTION_MODAL } from '../../../views/ListView/constants';
@@ -13,7 +14,7 @@ const addAction = () => {
     const { app, newActionModal } = getState();
 
     const { zone, morningActions, eveningActions } = app;
-    const { type, text, time } = newActionModal;
+    const { type, text, time, list } = newActionModal;
 
     const actionsForZone = zone === morningZone ?
                            morningActions :
@@ -42,9 +43,12 @@ const addAction = () => {
       zone,
       text,
       type,
-      time: type === timerType ? time : undefined,
       complete: false,
-      order: actionsForZone.length
+      order: actionsForZone.length,
+
+      // Optional
+      time: type === timerType ? time : undefined,
+      list: type === listType ? cleanArray(list) : undefined,
     };
 
     insertAction.call(action, (err, _id) => {
