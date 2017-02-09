@@ -20,6 +20,7 @@ const ActionView = props => {
 
     // from dispatch
     next,
+    skip,
   } = props;
 
   if (allComplete) {
@@ -40,11 +41,20 @@ const ActionView = props => {
     <div>
       { page }
 
-      <center>
-        <Button onClick={() => next(action)} block>
-          Next &raquo;
+      <div className="flex">
+        <Button onClick={skip} half fade>
+          Skip &raquo;
         </Button>
-      </center>
+        <Button onClick={() => next(action)} half>
+          Next &rsaquo;
+        </Button>
+      </div>
+
+      <style jsx>{`
+        .flex {
+          display: flex;
+        }
+      `}</style>
     </div>
   );
 };

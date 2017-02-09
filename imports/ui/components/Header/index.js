@@ -4,7 +4,11 @@ import Button from '../Button';
 
 const Header = ({ toggleView, listView, showFocusButton }) => (
   <header>
-    <h1>every<strong>day</strong></h1>
+    { showFocusButton ?
+      <h1 className="cursor" onClick={toggleView}>
+        every<strong>day</strong>
+      </h1> :
+      <h1>every<strong>day</strong></h1> }
 
     { showFocusButton &&
       <div>
@@ -23,6 +27,10 @@ const Header = ({ toggleView, listView, showFocusButton }) => (
 
       h1 {
         font-weight: 300;
+      }
+
+      .cursor {
+        cursor: pointer;
       }
 
       div {

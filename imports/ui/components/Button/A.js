@@ -4,6 +4,7 @@ import classNames from 'classnames';
 const A = props => {
   const {
     block,
+    half,
     children,
     fade,
     onClick,
@@ -13,6 +14,7 @@ const A = props => {
 
   const cls = classNames({
     block,
+    half,
     fade,
     start,
     stop,
@@ -53,9 +55,18 @@ const A = props => {
           text-align: center;
         }
 
+        .half {
+          display: block;
+          flex: 1 0 50%;
+          text-align: center;
+        }
+
+        .half:first-of-type {
+          border-right: none;
+        }
+
         .fade {
-          opacity: 0.1;
-          transition: opacity 0.3s ease-in;
+          opacity: 0.3;
         }
 
         .fade:hover {

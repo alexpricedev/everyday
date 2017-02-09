@@ -17,6 +17,10 @@ function mapDispatchToProps(dispatch) {
       dispatch({ type: COMPLETE_ACTION, action });
       dispatch(nextAction());
     },
+
+    skip: () => {
+      dispatch(nextAction());
+    },
   };
 }
 
