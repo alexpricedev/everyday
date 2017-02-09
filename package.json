@@ -23,7 +23,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
-    "simpl-schema": "git+ssh://git@github.com/DerekTBrown/node-simple-schema.git",
+    "simpl-schema": "^0.1.1",
     "styled-jsx": "^0.5.0"
   },
   "devDependencies": {
