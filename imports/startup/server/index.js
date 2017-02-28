@@ -3,6 +3,7 @@
  */
 
 import './fixtures';
+import './setup';
 import './security';
 import './useraccounts-configuration';
 import './emails/reset-password.js';
